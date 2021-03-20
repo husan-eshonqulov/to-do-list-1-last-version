@@ -11,19 +11,18 @@ class App extends React.Component {
 
     removeElement = (index) => {
         const { toDoList } = this.state;
-
+        let filteredList = toDoList.filter((element, i) => {
+            if (i !== index) {
+                return element;
+            }
+        });
         this.setState({
-            toDoList: toDoList.filter((element, i) => {
-                // console.log(i);
-                if (i !== index) {
-                    return element;
-                }
-            }),
+            toDoList: filteredList,
         });
     }
 
     handleSubmit = (task) => {
-        if (task.task !== ''){
+        if (task.task !== '') {
             this.setState({
                 toDoList: [...this.state.toDoList, task.task],
             });
