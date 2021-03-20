@@ -11,11 +11,12 @@ class App extends React.Component {
 
     removeElement = (index) => {
         const { toDoList } = this.state;
-        let filteredList = toDoList.filter((element, i) => {
-            if (i !== index) {
-                return element;
-            }
-        });
+        // let filteredList = toDoList.filter((element, i) => {
+        //     if (i !== index) {
+        //         return element;
+        //     }
+        // });
+        let filteredList = toDoList.filter((element, i) => i !== index);
         this.setState({
             toDoList: filteredList,
         });
